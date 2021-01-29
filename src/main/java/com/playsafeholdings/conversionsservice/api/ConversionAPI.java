@@ -26,9 +26,15 @@ public class ConversionAPI {
         return ResponseEntity.status(HttpStatus.OK).body(conversionResponse);
     }
 
-    @PostMapping(value = "ctok", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @PostMapping(value = "/ctok", produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity convertCelciusToKelvin(@RequestBody InputRequestDto inputRequestDto){
         ConversionResponse conversionResponse = conversionService.convertCelciusToKelvin(inputRequestDto.getInputValue());
+        return ResponseEntity.status(HttpStatus.OK).body(conversionResponse);
+    }
+
+    @PostMapping(value = "/mtok", produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity convertMileToKilometer(@RequestBody InputRequestDto inputRequestDto){
+        ConversionResponse conversionResponse = conversionService.convertMileToKilometer(inputRequestDto.getInputValue());
         return ResponseEntity.status(HttpStatus.OK).body(conversionResponse);
     }
 }

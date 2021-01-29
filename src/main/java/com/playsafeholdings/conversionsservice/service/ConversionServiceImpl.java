@@ -25,4 +25,10 @@ public class ConversionServiceImpl implements ConversionService {
         Double convertedValue = celcius - Double.parseDouble(environment.getRequiredProperty("conversion.celcius.factor"));
         return new ConversionResponse(convertedValue);
     }
+
+    @Override
+    public ConversionResponse convertMileToKilometer(double mile) {
+        Double convertedValue = mile - Double.parseDouble(environment.getRequiredProperty("conversion.mile.factor"));
+        return new ConversionResponse(convertedValue);
+    }
 }
