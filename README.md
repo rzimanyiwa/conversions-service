@@ -26,3 +26,5 @@ in kilometers.
 /conversions/ktom
 The ktom endpoint should produce, when given an input amount in kilometers, an output
 amount in miles.
+
+![ScreenShot](/documentation.png)
