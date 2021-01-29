@@ -7,4 +7,6 @@ public interface ConversionService {
     ConversionResponse convertCelciusToKelvin(double inputValue);
 
     ConversionResponse convertMileToKilometer(double inputValue);
+
+    ConversionResponse convertKilometerToMile(double inputValue);
 }

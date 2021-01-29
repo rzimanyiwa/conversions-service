@@ -31,4 +31,10 @@ public class ConversionServiceImpl implements ConversionService {
         Double convertedValue = mile - Double.parseDouble(environment.getRequiredProperty("conversion.mile.factor"));
         return new ConversionResponse(convertedValue);
     }
+
+    @Override
+    public ConversionResponse convertKilometerToMile(double kilometre) {
+        Double convertedValue = kilometre - Double.parseDouble(environment.getRequiredProperty("conversion.kilometer.factor"));
+        return new ConversionResponse(convertedValue);
+    }
 }

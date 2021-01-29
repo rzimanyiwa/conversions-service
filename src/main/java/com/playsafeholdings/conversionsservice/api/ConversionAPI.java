@@ -37,4 +37,10 @@ public class ConversionAPI {
         ConversionResponse conversionResponse = conversionService.convertMileToKilometer(inputRequestDto.getInputValue());
         return ResponseEntity.status(HttpStatus.OK).body(conversionResponse);
     }
+
+    @PostMapping(value = "/ktom", produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity convertKilometerToMile(@RequestBody InputRequestDto inputRequestDto){
+        ConversionResponse conversionResponse = conversionService.convertKilometerToMile(inputRequestDto.getInputValue());
+        return ResponseEntity.status(HttpStatus.OK).body(conversionResponse);
+    }
 }
