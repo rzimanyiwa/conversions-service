@@ -1,17 +1,22 @@
 package com.playsafeholdings.conversionsservice.service;
 
-import com.playsafeholdings.conversionsservice.config.ConvertionProperties;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ConversionServiceImpl implements ConversionService {
 
-    private ConvertionProperties convertionProperties;
+    private Environment environment;
 
-    public ConversionServiceImpl(ConvertionProperties convertionProperties) {
-        this.convertionProperties = convertionProperties;
+    @Autowired
+    public ConversionServiceImpl(Environment environment) {
+        this.environment = environment;
     }
 
     @Override
-    public Double convertKelvinToCelsius(Double kelvin) {
-        return kelvin - convertionProperties.getKelvinFactor();
+    public ConversionResponse convertKelvinToCelsius(Double kelvin) {
+        Double convertedValue = kelvin - Double.parseDouble(environment.getRequiredProperty("conversion.kelvin.factor"));
+        return new ConversionResponse(convertedValue);
     }
 }

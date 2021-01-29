@@ -22,7 +22,7 @@ public class ConversionAPI {
 
     @PostMapping(value = "/ktoc", produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity convertKelvinToCelsius(@RequestBody InputRequestDto inputRequestDto){
-        Double conversionResponse = conversionService.convertKelvinToCelsius(inputRequestDto.getInputValue());
+        ConversionResponse conversionResponse = conversionService.convertKelvinToCelsius(inputRequestDto.getInputValue());
         return ResponseEntity.status(HttpStatus.OK).body(conversionResponse);
     }
 }

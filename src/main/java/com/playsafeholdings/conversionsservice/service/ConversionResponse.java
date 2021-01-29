@@ -4,6 +4,10 @@ public class ConversionResponse {
 
     private Double output;
 
+    public ConversionResponse(Double convertedValue) {
+        this.output = convertedValue;
+    }
+
     public Double getOutput() {
         return output;
     }
