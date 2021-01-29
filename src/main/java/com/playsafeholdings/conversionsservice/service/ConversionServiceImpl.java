@@ -19,4 +19,10 @@ public class ConversionServiceImpl implements ConversionService {
         Double convertedValue = kelvin - Double.parseDouble(environment.getRequiredProperty("conversion.kelvin.factor"));
         return new ConversionResponse(convertedValue);
     }
+
+    @Override
+    public ConversionResponse convertCelciusToKelvin(double celcius) {
+        Double convertedValue = celcius - Double.parseDouble(environment.getRequiredProperty("conversion.celcius.factor"));
+        return new ConversionResponse(convertedValue);
+    }
 }

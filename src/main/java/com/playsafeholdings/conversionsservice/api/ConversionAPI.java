@@ -25,4 +25,10 @@ public class ConversionAPI {
         ConversionResponse conversionResponse = conversionService.convertKelvinToCelsius(inputRequestDto.getInputValue());
         return ResponseEntity.status(HttpStatus.OK).body(conversionResponse);
     }
+
+    @PostMapping(value = "ctok", produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity convertCelciusToKelvin(@RequestBody InputRequestDto inputRequestDto){
+        ConversionResponse conversionResponse = conversionService.convertCelciusToKelvin(inputRequestDto.getInputValue());
+        return ResponseEntity.status(HttpStatus.OK).body(conversionResponse);
+    }
 }
